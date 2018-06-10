@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <img src="./assets/logo2.png">
-    <HelloWorld msg="Welcome to Your Latest Project"/>
+    <HelloWorld msg="Lambda Go/Vue project"/>
     <ApiComponent />
 
 

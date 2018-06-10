@@ -9,9 +9,10 @@
     <div v-if="loading">Loading...</div>
     
     <div v-else>
-    <h3>SWAPI Planets:</h3>
-     <ul v-for="post in posts">
-      <li>{{ post.name }}</li>
+    <h3>Lambda Call:</h3>
+     <ul>
+      <li>message: {{ posts.msg }}</li>
+      <li>key: {{ posts.key }} </li>
     </ul>
     </div>
 </section>
@@ -34,10 +35,10 @@ export default {
  // Fetches posts when the component is created.
   created() {
     axios
-    .get(`https://swapi.co/api/planets/`)
+    .get(`http://127.0.0.1:3000/hello`)
     .then(response => {
       // JSON responses are automatically parsed.
-      this.posts = response.data.results
+      this.posts = response.data
       this.loading = false
     })
     .catch(e => {
