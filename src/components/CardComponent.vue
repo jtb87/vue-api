@@ -1,11 +1,10 @@
 <template>
   <div id=API>
- 	<form id="form1" @submit="HandleForm" method="POST">
-  			<input type="text" name="username" placeholder="username">
-  			<input type="text" name="password" placeholder="password">
-  			<input type="submit" value="Set Cookie">
+    <form @submit.prevent="HandleForm">
+      <input type="text" v-model="user" placeholder="username">
+      <input type="text" v-model="password" placeholder="password">
+      <button type="submit">Click</button>
 	</form>
-<button v-on:click="HandleForm"> Click</button>
  <p> {{ formdata }} </p>
   </div>
 </template>
@@ -15,19 +14,17 @@ export default {
   name: 'CardComponent',
   data() {
     return {
-      formdata: "data"
-  }},
-  methods: {
-  	HandleForm: function(){
-  		this.formdata = "Transformed Data"
-  		}
-  	}
+      formdata: "data",
+      password: "",
+      user: "",
+    }
+    },
+    methods: {
+      HandleForm: function(){
+        this.formdata = this.password + " - " + this.user
+    }
   }
-
-
-
-
-
+}
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
