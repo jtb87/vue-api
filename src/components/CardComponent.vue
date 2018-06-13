@@ -1,16 +1,19 @@
 <template>
-  <div id=API>
+  <div>
+    <md-card>
     <section v-if="cookie.loggedin != 'true'">
     <form @submit.prevent="HandleForm">
       <input type="text" v-model="user" placeholder="username">
       <input type="text" v-model="password" placeholder="password">
-      <button type="submit">Click</button>
+      <md-button type="submit">Click</md-button>
 	 </form>
   </section>
   <p> {{ formdata }} </p>
   <p> {{ cookie.username }} </p>
   <p> {{ cookie }} </p>
-  <button @click="removeCookie">removeCookie</button>
+  <md-button @click="removeCookie">removeCookie</md-button>
+  </md-card>
+
   </div>
 </template>
 
@@ -54,6 +57,9 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+md-card{
+  max-width: 50%;
+}
 #API{
 	/*background-color: #ccc;*/
 	max-width: 50%;

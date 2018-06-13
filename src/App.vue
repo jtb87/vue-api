@@ -1,10 +1,15 @@
 <template>
   <div id="app">
-    <img src="./assets/logo2.png">
-    <HelloWorld msg="Lambda Go/Vue project"/>
-    <ApiComponent />
-
-
+    <div class="md-layout">
+      <div class="md-layout-item"></div>
+      <div class="md-layout-item">
+        <img src="./assets/logo2.png">
+          <HelloWorld msg="Lambda Go/Vue project"/>
+          <ApiComponent />
+      </div>
+      <div class="md-layout-item"></div>
+    </div>
+   
   </div>
 </template>
 
@@ -24,8 +29,9 @@ export default {
 </script>
 
 <style>
+
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: 'Roboto','Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
@@ -33,3 +39,5 @@ export default {
   margin-top: 60px;
 }
 </style>
+
+
