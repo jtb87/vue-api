@@ -3,9 +3,9 @@
     <div class="md-layout">
       <div class="md-layout-item"></div>
       <div class="md-layout-item">
-        <img src="./assets/logo2.png">
+        <!-- <img src="./assets/logo2.png"> -->
           <HelloWorld msg="Lambda Go/Vue project"/>
-          <ApiComponent />
+          <!-- <ApiComponent /> -->
       </div>
       <div class="md-layout-item"></div>
     </div>
