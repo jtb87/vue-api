@@ -1,27 +1,29 @@
 <template>
   <div id="app">
-   <!--  <div class="md-layout">
+    <div class="md-layout">
       <div class="md-layout-item"></div>
-      <div class="md-layout-item"> -->
-        <!-- <img src="./assets/logo2.png"> -->
+      <div class="md-layout-item"> 
           <CardComponent />
           <!-- <ApiComponent /> -->
-      <!-- </div>
+          <ButtonComponent />
+      </div>
       <div class="md-layout-item"></div>
     </div>
-    -->
+   
   </div>
 </template>
 
 <script>
 import CardComponent from './components/CardComponent.vue'
 import ApiComponent from './components/ApiComponent.vue'
+import ButtonComponent from './components/ButtonComponent'
 
 export default {
   name: 'app',
   components: {
     CardComponent, 
-    ApiComponent, 
+    ApiComponent,
+    ButtonComponent, 
   }
 }
 
@@ -29,14 +31,21 @@ export default {
 
 <style>
 
+.md-layout{
+  margin-top: 60px;
+
+}
+
+.md-card{
+  margin-top: 50px;
+}
+
 #app {
-  max-width:600px;
   font-family: 'Roboto','Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
 }
 </style>
 

@@ -1,5 +1,4 @@
 <template>
-  <div>
     <md-card>
       <md-card-header><div class="md-title">Login Form</div></md-card-header>
       <md-card-content>
@@ -30,7 +29,6 @@
   <md-button @click="LogOut">logout</md-button>
   </md-card>
 
-  </div>
 </template>
 
 <script>
@@ -76,9 +74,7 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-md-card{
-  max-width: 50%;
-}
+
 #API{
 	/*background-color: #ccc;*/
 	max-width: 50%;
