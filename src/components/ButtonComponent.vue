@@ -4,22 +4,47 @@
       <md-card-content>
             <div class="md-layout md-gutter">
                 <div class="md-layout-item">
-                    <md-button class="md-raised" @click="edit_design">Ontwerp Aanpassen</md-button>
+                    <md-button  
+                    v-bind:class="{ active: show_edit_design }"
+                    @click="edit_design">
+                      Ontwerp Aanpassen
+                    </md-button>
                     
 
                 </div>
                 <div class="md-layout-item">
-                    <md-button class="md-raised md-toggle" @click="show_design">Ontwerp Bevestigen</md-button>
-                </div>
+                    <md-button 
+                     v-bind:class="{ active: show_confirm_design }"
+                    @click="show_design">Ontwerp Bevestigen</md-button>
+                </div>               
             </div>
             <section v-if="show_edit_design">
               <div class="pop-out">
-                edit design
-              </div>
+                <div class="md-layout md-alignment-top-right">
+                  <div class="md-layout-item md-size-100">
+                    Heeft u opmerkingen voor de ontwerper?
+                    <md-field style="background: white;">
+                      <label>opmerkingen voor designer</label>
+                      <md-textarea v-model="textarea"></md-textarea>
+                    </md-field>
+                  </div>
+                  <div class="md-layout-item md-size-20">
+                    <md-button style="background:#5faf34;">Verstuur</md-button>
+                  </div>
+                </div>
+                </div>
             </section>
             <section v-if="show_confirm_design">
               <div class="pop-out">
-                Ontwerp Bevestigen
+                <div class="md-layout md-alignment-bottom-right">
+                  <div class="md-layout-item md-size-100">
+                    Weet u zeker dat u tevreden bent met het gekozen ontwerp? 
+                  </div>
+                  <div class="md-layout-item md-size-20">
+                    <md-button style="background:#5faf34;">JA, Bevestig</md-button>
+                  </div>
+                </div>
+                </div>
               </div>
             </section>
         </md-card-content>
@@ -33,8 +58,8 @@ export default {
     data() {
       return {
         show_edit_design: false,
-        show_confirm_design: false
-
+        show_confirm_design: false,
+        textarea: null
       }
     },
     methods: {
@@ -53,10 +78,24 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+
 .pop-out{ 
-  margin-top:25px;
   text-align: left;
-  background: #ccc;
+  padding:10px;
+  /*border: 1px solid  #ccc;*/
+  border-radius: 4px;
+
  }
+
+.active{
+  background: #5faf34;
+/*  border-top: 1px solid #ccc;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;*/
+}
+
+.md-button{
+  margin-bottom: -1px;
+}
 
 </style>
