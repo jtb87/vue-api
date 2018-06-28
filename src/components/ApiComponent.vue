@@ -35,7 +35,7 @@ export default {
  // Fetches posts when the component is created.
   created() {
     axios
-    .get(`http://127.0.0.1:3000/hello`)
+    .get(`http://127.0.0.1:9090/exp/interface`)
     .then(response => {
       // JSON responses are automatically parsed.
       this.posts = response.data

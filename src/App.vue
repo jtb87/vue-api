@@ -1,13 +1,15 @@
 <template>
   <div id="app">
     <div class="md-layout">
-      <div class="md-layout-item"></div>
+      <div class="md-layout-item md-size-20"></div>
       <div class="md-layout-item"> 
-          <CardComponent />
-          <!-- <ApiComponent /> -->
-          <ButtonComponent />
+          <!-- <CardComponent /> -->
+          <ApiComponent />
+          <!-- <ButtonComponent /> -->
+          <imageComponent />
+  
       </div>
-      <div class="md-layout-item"></div>
+      <div class="md-layout-item md-size-20"></div>
     </div>
    
   </div>
@@ -17,13 +19,14 @@
 import CardComponent from './components/CardComponent.vue'
 import ApiComponent from './components/ApiComponent.vue'
 import ButtonComponent from './components/ButtonComponent'
-
+import imageComponent from './components/imageComponent'
 export default {
   name: 'app',
   components: {
     CardComponent, 
     ApiComponent,
     ButtonComponent, 
+    imageComponent,
   }
 }
 
