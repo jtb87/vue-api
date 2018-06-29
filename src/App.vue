@@ -4,7 +4,7 @@
       <div class="md-layout-item md-size-20"></div>
       <div class="md-layout-item"> 
           <!-- <CardComponent /> -->
-          <ApiComponent />
+          <!-- <ApiComponent /> -->
           <!-- <ButtonComponent /> -->
           <imageComponent />
   
