@@ -2,14 +2,11 @@
     <md-card>
       <md-card-header><h2>Image uploader</h2></md-card-header>
       <md-card-content>
-        <p> name: {{name}} </p>
-        <p> object: {{object}} </p>
-        <p> status: {{status}} </p>
-        <p> status: {{status2}} </p>
-        <p> content: {{content}} </p>
+        <p> filename: {{name}} </p>
+        <p> status: {{resp}} </p>
     <div>
 <!--     <form enctype="multipart/form-data" novalidate>
- -->        <input type="file" @change="tester">
+ -->        <input type="file" @change="changeImage">
 
 <!--       <md-field>
       <label>Upload image</label>
@@ -22,6 +19,8 @@
     <!-- </form> -->
     </div>
       <md-button @click="submitImage">Submit image</md-button>
+      <div>
+    </div>
       </md-card-content>
   </md-card>
 </template>
@@ -33,15 +32,9 @@ export default {
   name: 'CardComponent',
   data() {
     return {
-      // files: new FormData(),
       name: null, 
-      text: null,
       content: null,
-      status: null,
       object: null,
-      status2: "",
-      // unrelaed
-      response: null, 
       errors: null, 
       body: null,
       resp: null, 
@@ -52,7 +45,7 @@ export default {
       submitImage: function(){
         this.body = {
           Name: this.name,
-          Content: btoa(this.object),
+          Content: this.content,
 
       }
         axios
@@ -63,82 +56,23 @@ export default {
         })
         .catch(e => {
           this.errors = e
+          this.resp = e.response.data.error
         })
   },
-  tester(e){
-    const file = e.target.files[0];
-    const reader = new FileReader();
-    reader.onload = function(event){
-      this.object = event.target.result
-      this.status2 = "done"
+  changeImage(e){
+    let files = e.target.files;
+    let reader = new FileReader();
+    reader.onload = (event) => {
+      // file contains some extra data that needs to be removed
+      // var base64Img = "data:image/png;base64,AAA=";
+      this.content = event.target.result.replace("data:image/png;base64,", "");
     }
-    reader.onprogress = function(event){
-      this.status2 = "progress"
-    }
-    reader.onloadstart = e => this.$emit("load", e.target.result)
-    
-    reader.addEventListener("onload", function (event) { 
-         this.status2 = "start"
-    })
-
-    reader.readAsDataURL(e.target.files[0])
-    this.status = reader.readyState
-    this.status = " ... "
-    // this.content = e.target.files[0]
-    // this.name = this.content.name
-    // var fileReader = new FileReader();
-    // fileReader.readAsArrayBuffer(event.target.files[0]);
-    // fileReader.addEventListener("onload", function (e) {
-    // // fileReader.onload = function(event){
-    //       this.status2 = fileReader.readyState
-    //       this.object = fileReader.result
-    //   }); 
-    // this.status = fileReader.readyState
-    
-  },
-//   tester2(event){
-//     var reader = new FileReader();
-//     reader.onload = function(e) {
-//       fileDisplayArea.innerHTML = "";
-//    // Create a new image.
-//       var img = new Image();
-//    // Set the img src property using the data URL.
-//    img.src = reader.result;
-
-//    // Add the image to the page.
-//    fileDisplayArea.appendChild(img);
-//  }
-
-//  reader.readAsDataURL(file); 
-// } else {
-//  fileDisplayArea.innerHTML = "File not supported!";
-// }
-//   },
-
-
-
- 
-
-   // upload() {
-   //        axios
-   //        .post( 'http://localhost:9090/exp/file',
-   //        formData,
-   //        {
-   //          headers: {
-   //              'Content-Type': 'multipart/form-data'
-   //          }
-   //        }
-   //      ).then(function(){
-   //        console.log('SUCCESS!!');
-   //      })
-   //      .catch(function(){
-   //        console.log('FAILURE!!');
-   //      });
-   //    },
+    reader.readAsDataURL(files[0])
+    this.name = files[0].name
+  },  
   }
 }
 </script>
-
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 
