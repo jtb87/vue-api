@@ -21,7 +21,11 @@
       <md-button @click="submitImage">Submit image</md-button>
       <div>
     </div>
+      <div>
+        <img :src="this.image">
+      </div>
       </md-card-content>
+
   </md-card>
 </template>
 
@@ -32,6 +36,7 @@ export default {
   name: 'CardComponent',
   data() {
     return {
+      image: null,
       name: null, 
       content: null,
       object: null,
@@ -65,7 +70,8 @@ export default {
     reader.onload = (event) => {
       // file contains some extra data that needs to be removed
       // var base64Img = "data:image/png;base64,AAA=";
-      this.content = event.target.result.replace("data:image/png;base64,", "");
+      this.image = event.target.result
+      this.content = this.image.replace("data:image/png;base64,", "");
     }
     reader.readAsDataURL(files[0])
     this.name = files[0].name
