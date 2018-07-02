@@ -7,7 +7,7 @@
           <!-- <ApiComponent /> -->
           <!-- <ButtonComponent /> -->
           <imageComponent />
-  
+          <randomImageComp />
       </div>
       <div class="md-layout-item md-size-20"></div>
     </div>
@@ -20,6 +20,7 @@ import CardComponent from './components/CardComponent.vue'
 import ApiComponent from './components/ApiComponent.vue'
 import ButtonComponent from './components/ButtonComponent'
 import imageComponent from './components/imageComponent'
+import randomImageComp from './components/randomImageComp'
 export default {
   name: 'app',
   components: {
@@ -27,6 +28,7 @@ export default {
     ApiComponent,
     ButtonComponent, 
     imageComponent,
+    randomImageComp,
   }
 }
 
